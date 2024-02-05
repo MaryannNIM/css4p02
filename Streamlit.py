@@ -4,26 +4,19 @@ Created on Mon Feb  5 09:25:08 2024
 
 @author: User
 """
-import pandas as pd
-import matplotlib.pyplot as plt
-
 import streamlit as st
-
+import pandas as pd
+ 
 st.write("""
- # My first streamlit app.
- """)
+# My first app
+""")
  
- 
-file1 = pd.read_csv('C:/Users/User/css2024_day2/Motor_Theft/locations.csv')
-print(file1)
+df = pd.read_csv("Motor_Theft/locations.csv")
+x = df['population']
+y = df['density']
+st.title("Population verse density")
+st.xlabel("Population")
+st.ylabel("Density")
+st.plot(x, y)
 
-
-x = file1['population']
-y = file1['density']
-plt.title("Population verse density")
-plt.xlabel("Population")
-plt.ylabel("Density")
-plt.plot(x, y)
-plt.show()
-
-st.line_chart(file1)
+st.line_chart(df)
